@@ -1,0 +1,14 @@
+Package: aztools
+Title: Implementation of several functions for interacting with Azure storage accounts.
+Version: 0.0.1
+Authors@R: 
+    person(given = "Ismael",
+           family = "Chinarro Moreno",
+           role = c("aut", "cre"),
+           email = "rielcm97@gmail.com")
+Description: Implementation of several functions for interacting with Azure storage accounts.
+License: `use_mit_license()`
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
