@@ -41,3 +41,33 @@ Upload_Batch <- function(az_path = "", local_path = ".", account_name, container
 
   system(upload_query, intern = T)
 }
+
+
+#' List all the blobs inside a directory
+#'
+#' This function list all blobs inside a directory
+#' @param az_path String. Path to the directory inside the blob container.
+#' @param account_name String. Storage account name.
+#' @param container_name String. Container name.
+#' @param sas_token String. SAS token with the requiered permissions to upload the files.
+#' @return List of all blobs inside the directory
+#' @export
+List_Blobs <- function(az_path, account_name, container_name, sas_token) {
+  list_query <- paste0("az storage blob list -c ", container_name,
+                        " --account-name ", account_name, " --prefix ",
+                        az_path, " --sas-token '", sas_token, "'")
+
+  raw_result <- system(list_query, intern = T)
+  raw_result <- noquote(noquote(paste(raw_result, collapse = "")))
+
+  parsed_list <- rjson::fromJSON(json_str = raw_result, simplify = T)
+
+  names_vector <- c()
+
+  for (element in parsed_list) {
+    names_vector <- c(names_vector, element$name)
+  }
+
+  names_vector
+}
+
