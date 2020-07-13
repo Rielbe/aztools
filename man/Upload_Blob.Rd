@@ -18,5 +18,5 @@ Upload_Blob(local_file, az_blob, account_name, container_name, sas_token)
 \item{sas_token}{String. SAS token with the requiered permissions to upload.}
 }
 \description{
-This function uploadss the blob specified at the local_file param
+This function uploads the blob specified at the local_file param
 }
