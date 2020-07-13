@@ -10,7 +10,8 @@
 #' @param sas_token String. SAS token with the required permissions to download the files.
 #' @return The output of the download process.
 #' @export
-Download_Batch <- function(az_path = "", local_path = ".", account_name, container_name, sas_token) {
+Download_Batch <- function(az_path = "", local_path = ".", account_name, container_name,
+                           sas_token) {
   download_query <- paste0("az storage copy -s ",
                            "'https://", account_name, ".blob.core.windows.net/",
                            container_name, "/", az_path, sas_token, "'",
@@ -31,7 +32,8 @@ Download_Batch <- function(az_path = "", local_path = ".", account_name, contain
 #' @param sas_token String. SAS token with the required permissions to upload the files.
 #' @return The output of the upload process.
 #' @export
-Upload_Batch <- function(az_path = "", local_path = ".", account_name, container_name, sas_token) {
+Upload_Batch <- function(az_path = "", local_path = ".", account_name, container_name,
+                         sas_token) {
   upload_query <- paste0("az storage copy -d ",
                          "'https://", account_name, ".blob.core.windows.net/",
                          container_name, "/", az_path, sas_token, "'",
