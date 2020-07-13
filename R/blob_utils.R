@@ -129,3 +129,28 @@ Upload_Blob <- function(local_file, az_blob,
   if (!is.null(attributes(result))) stop("Error al descargar el blob")
 }
 
+
+#' Check if a blob exists in certain directory
+#'
+#' This function checks if a blob exists in certain directory
+#' @param blob_name String. Name of the blob.
+#' @param directory String. Path where the blob will be searched.
+#' @param account_name String. Storage account name.
+#' @param container_name String. Container name.
+#' @param sas_token String. SAS token with the requiered permissions to upload.
+#' @return TRUE if the blob exists, FALSE if not.
+#' @export
+Blob_Exists <- function(blob_name, directory, account_name, container_name,
+                       sas_token) {
+
+  listed_dir <- List_Blobs(directory, account_name, container_name, sas_token)
+
+  for (file in listed_dir) {
+    splitted <- strsplit(file, split = "/")
+    file_name <- splitted[[1]][length(splitted[[1]])]
+
+    if (blob_name == file_name) return(TRUE)
+  }
+
+  FALSE
+}
