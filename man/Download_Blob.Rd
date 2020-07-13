@@ -21,7 +21,7 @@ Download_Blob(
 
 \item{container_name}{String. Container name.}
 
-\item{sas_token}{String. SAS token with the requiered permissions to upload the files.}
+\item{sas_token}{String. SAS token with the requiered permissions to download.}
 }
 \description{
 This function downloads the blob specified at the az_blob param

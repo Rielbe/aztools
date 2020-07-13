@@ -13,7 +13,7 @@ List_Blobs(az_path, account_name, container_name, sas_token)
 
 \item{container_name}{String. Container name.}
 
-\item{sas_token}{String. SAS token with the requiered permissions to upload the files.}
+\item{sas_token}{String. SAS token with the requiered permissions to list the files.}
 }
 \value{
 List of all blobs inside the directory

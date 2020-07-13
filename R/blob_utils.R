@@ -59,7 +59,7 @@ Upload_Batch <- function(az_path = "", local_path = ".", account_name, container
 #' @param az_path String. Path to the directory inside the blob container.
 #' @param account_name String. Storage account name.
 #' @param container_name String. Container name.
-#' @param sas_token String. SAS token with the requiered permissions to upload the files.
+#' @param sas_token String. SAS token with the requiered permissions to list the files.
 #' @return List of all blobs inside the directory
 #' @export
 List_Blobs <- function(az_path, account_name, container_name, sas_token) {
@@ -91,7 +91,7 @@ List_Blobs <- function(az_path, account_name, container_name, sas_token) {
 #' @param local_file String. Path to the file where the blob will be downloded.
 #' @param account_name String. Storage account name.
 #' @param container_name String. Container name.
-#' @param sas_token String. SAS token with the requiered permissions to upload the files.
+#' @param sas_token String. SAS token with the requiered permissions to download.
 #' @export
 Download_Blob <- function(az_blob, local_file = "./az_download.file",
                           account_name, container_name, sas_token) {
