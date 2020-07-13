@@ -84,3 +84,25 @@ List_Blobs <- function(az_path, account_name, container_name, sas_token) {
   names_vector
 }
 
+#' Download a specific blob
+#'
+#' This function downloads the blob specified at the az_blob param
+#' @param az_blob String. Path to the blob.
+#' @param local_file String. Path to the file where the blob will be downloded.
+#' @param account_name String. Storage account name.
+#' @param container_name String. Container name.
+#' @param sas_token String. SAS token with the requiered permissions to upload the files.
+#' @export
+Download_Blob <- function(az_blob, local_file = "./az_download.file",
+                          account_name, container_name, sas_token) {
+
+  download_query <- paste0("az storage blob download --name ", az_blob,
+                           " --file ", local_file, " -c ", container_name,
+                           " --account-name ", account_name, " --sas-token '",
+                           sas_token, "'")
+
+  result <- system(download_query, intern = T)
+
+  if (!is.null(attributes(result))) stop("Error al descargar el blob")
+}
+
