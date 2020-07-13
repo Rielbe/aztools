@@ -110,7 +110,7 @@ Download_Blob <- function(az_blob, local_file = "./az_download.file",
 #' Upload a specific blob
 #'
 #' This function uploadss the blob specified at the local_file param
-#' #' @param local_file String. Path to the file that will be uploaded
+#' @param local_file String. Path to the file that will be uploaded
 #' @param az_blob String. Path to the blob.
 #' @param account_name String. Storage account name.
 #' @param container_name String. Container name.

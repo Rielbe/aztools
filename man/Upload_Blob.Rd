@@ -7,6 +7,8 @@
 Upload_Blob(local_file, az_blob, account_name, container_name, sas_token)
 }
 \arguments{
+\item{local_file}{String. Path to the file that will be uploaded}
+
 \item{az_blob}{String. Path to the blob.}
 
 \item{account_name}{String. Storage account name.}
@@ -17,5 +19,4 @@ Upload_Blob(local_file, az_blob, account_name, container_name, sas_token)
 }
 \description{
 This function uploadss the blob specified at the local_file param
-#' @param local_file String. Path to the file that will be uploaded
 }
